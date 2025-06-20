@@ -3,7 +3,7 @@
 //Finish May 29th
 //5.28
 
-//MUSIC ALL ALONG+GIF IMG
+//1. MUSIC ALL ALONG+ 2. GIF IMG
 
 PFont titleFont;
 PImage gif;
