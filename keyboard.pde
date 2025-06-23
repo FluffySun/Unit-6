@@ -1,17 +1,24 @@
-//PONG GAME START:
+boolean leftPressed = false;
+boolean rightPressed = false;
 
-void keyPressed() {
-  if (key =='w' || key =='W')  wkey=true;
-  if (key =='s' || key =='S') skey=true;
-  if(keyCode==UP) upkey=true;
-  if(keyCode==DOWN) downkey=true;
+void keyboard_keyPressed() {
+  if (keyCode == LEFT) {
+    leftPressed = true;
+  } else if (keyCode == RIGHT) {
+    rightPressed = true;
+  } else if (key == 'p' || key == 'P') {
+    gamePaused = !gamePaused;
+  } else if (keyCode == ENTER || key == RETURN) {
+    if (screen.equals("INTRO") || screen.equals("GAMEOVER")) {
+      restartGame();
+    }
+  }
 }
 
-void keyReleased() {
-    if (key =='w' || key =='W')  wkey=false;
-    if (key =='s' || key =='S') skey=false;
-    if (keyCode==UP) upkey=false;
-    if (keyCode==DOWN) downkey=false;//the thing that moves the different ways
+void keyboard_keyReleased() {
+  if (keyCode == LEFT) {
+    leftPressed = false;
+  } else if (keyCode == RIGHT) {
+    rightPressed = false;
+  }
 }
-
-//:END PONG GAME

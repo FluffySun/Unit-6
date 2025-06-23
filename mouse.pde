@@ -1,36 +1,12 @@
-//void mouseReleased() {
-//  if (mode == INTRO) {
-//    introClicks();
-//  } else if (mode == GAME) {
-//    gameClicks();
-//  } else if (mode == PAUSE) {
-//    pauseClicks();
-//  } else if (mode == GAMEOVER) {
-//    gameoverClicks();
-//  }
-//}
-
-void mouseReleased() {
-  if (mode == INTRO) {
-    mode = GAME;
-  } else if (mode == PAUSE) {
-    mode = GAME;
-  } else if (mode == GAMEOVER) {
-    resetGame();
-    mode = INTRO;
+void mouse_mousePressed() {
+  if (screen.equals("INTRO") || screen.equals("GAMEOVER")) {
+    restartGame();
   }
-}
-
-void resetGame() {
-  lives = 3;
-  score = 0;
-  vx = 3;
-  vy = 3;
-  px = width/2;
-  py = height - 50;
-  bx = width/2;
-  by = height - 100;
-  for (int i = 0; i < n; i++) {
-    alive[i] = true;
+  else if (screen.equals("GAMEWIN")) {
+    screen = "INTRO";
+    introSound.loop();
+  }
+  else if (screen.equals("GAME")) {
+    gamePaused = !gamePaused;
   }
 }

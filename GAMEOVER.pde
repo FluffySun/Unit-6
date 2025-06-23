@@ -1,17 +1,22 @@
-void gameOver() {
-  background(0);
-  fill(white);
-  textSize(32);
-  text("Game Over!", width/2, height/2);
-  
-  if (leftscore>rightscore) {
-    text("Left Player Wins!", width/2, height/2 + 50);
-} else if (rightscore > leftscore) {
-  text("Right Player Wins!", width/2, height/2 + 50);
-  }
+void GAMEOVER_setup() {
 }
 
-void gameOverClicks() {
-  text("Final Score: " + score, width/2, height/2 + 80);
-  text("Click to restart", width/2, height/2 + 120);
+void GAMEOVER_draw() {
+  background(0);
+  fill(255, 0, 0);
+  textAlign(CENTER, CENTER);
+  textSize(48);
+  text("GAME OVER", width / 2, height / 2 - 50);
+
+  fill(255);
+  textSize(24);
+  text("Score: " + score, width / 2, height / 2);
+  text("Click or Press ENTER to Restart", width / 2, height / 2 + 50);
+}
+
+void restartGame() {
+  score = 0;
+  lives = 3;
+  GAME_setup();
+  screen = "GAME";
 }
